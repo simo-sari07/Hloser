@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 const plans = [
   {
     name: "1 Month",
-    price: "39",
+    price: "23.99",
     period: "/month",
     badge: "Starter",
     description: "Begin your journey",
@@ -24,9 +24,9 @@ const plans = [
   },
   {
     name: "2 Months",
-    price: "54",
+    price: "40.99",
     period: "/2 months",
-    badge: "Value",
+    badge: "Popular",
     description: "Accelerate growth",
     icon: Zap,
     features: [
@@ -39,13 +39,14 @@ const plans = [
     cta: "Get Started",
     link: "https://whop.com/checkout/6lrV6wVi0c7caMFtPX-Szut-0ex1-g7ES-TjjaI5saP6m4/",
     popular: false,
-    saving: "Save 7%",
+    elite: true,
+    saving: "Save 15%",
   },
   {
     name: "3 Months",
-    price: "80",
+    price: "60.99",
     period: "/3 months",
-    badge: "Popular",
+    badge: "Value",
     description: "Master the market",
     icon: Zap,
     features: [
@@ -58,7 +59,7 @@ const plans = [
     cta: "Go Pro",
     link: "https://whop.com/checkout/ml9lCJBGzCUWos6Dn-5eRH-Jg0K-q3pM-xHedSiL1qPW0/",
     popular: true,
-    saving: "Save 11%",
+    saving: "Save 18%",
   },
   {
     name: "Yearly",
@@ -77,7 +78,6 @@ const plans = [
     cta: "Go Elite",
     link: "#",
     popular: false,
-    elite: true,
     saving: "Save 17%",
   },
 ]
@@ -139,53 +139,49 @@ export default function PlansSection() {
                 {/* Badge */}
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
                   <span
-                    className={`px-3 py-1 rounded-full text-xs font-semibold text-white transition-all ${
-                      plan.popular
+                    className={`px-3 py-1 rounded-full text-xs font-semibold text-white transition-all ${plan.popular
                         ? "bg-accent shadow-lg shadow-accent/50"
                         : plan.elite
                           ? "bg-gradient-to-r from-accent to-primary shadow-lg shadow-accent/50"
                           : "bg-muted"
-                    }`}
+                      }`}
                   >
                     {plan.badge}
                   </span>
                 </div>
 
-                {plan.saving && (
-                  <div className="absolute -top-3 right-4 z-10">
-                    <span className="px-2 py-1 rounded text-xs font-bold text-green-400 bg-green-500/10 border border-green-500/30">
-                      {plan.saving}
-                    </span>
-                  </div>
-                )}
-
                 <div
-                  className={`rounded-2xl border transition-all duration-300 h-full flex flex-col p-8 group-hover:shadow-2xl ${
-                    plan.elite
+                  className={`rounded-2xl border transition-all duration-300 h-full flex flex-col p-8 group-hover:shadow-2xl ${plan.elite
                       ? "border-accent/50 bg-gradient-to-br from-card to-card/50 shadow-xl shadow-accent/20 hover:shadow-accent/40"
                       : plan.popular
                         ? "border-accent/40 bg-card shadow-lg shadow-accent/10 hover:border-accent/60"
-                        : "border-border bg-card/50 hover:border-accent/30 hover:bg-card"
-                  }`}
+                        : "border-border bg-card/50 hover:border-accent hover:bg-card"
+                    }`}
                 >
                   {/* Icon */}
                   <div
-                    className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${
-                      plan.elite || plan.popular ? "bg-accent/20 text-accent" : "bg-muted text-muted-foreground"
-                    }`}
+                    className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${plan.elite || plan.popular ? "bg-accent/20 text-accent" : "bg-muted text-muted-foreground"
+                      }`}
                   >
                     <Icon className="w-6 h-6" />
                   </div>
 
                   {/* Plan Info */}
                   <div className="mb-6">
-                    <h3 className="text-lg font-bold text-foreground mb-1">{plan.name}</h3>
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="text-lg font-bold text-foreground">{plan.name}</h3>
+                      {plan.saving && (
+                        <span className="px-2 py-1 rounded text-xs font-bold text-green-400 bg-green-500/10 border border-green-500/30">
+                          {plan.saving}
+                        </span>
+                      )}
+                    </div>
                     <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
-                    <div className="flex items-baseline gap-1">
+                    <div className="flex items-baseline gap-2">
                       <span
                         className={`text-4xl font-bold ${plan.elite || plan.popular ? "text-accent" : "text-foreground"}`}
                       >
-                        ${plan.price}
+                        £{plan.price}
                       </span>
                       <span className="text-muted-foreground text-sm">{plan.period}</span>
                     </div>
@@ -194,13 +190,12 @@ export default function PlansSection() {
                   {/* CTA Button */}
                   <a href={plan.link} className="w-full block">
                     <button
-                      className={`w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-300 hover:scale-105 active:scale-95 text-sm ${
-                        plan.elite
+                      className={`w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-300 hover:scale-105 active:scale-95 text-sm ${plan.elite
                           ? "bg-gradient-to-r from-accent to-primary text-white hover:shadow-lg hover:shadow-accent/30"
                           : plan.popular
                             ? "bg-accent text-white hover:bg-accent/90 shadow-lg shadow-accent/20"
                             : "border-2 border-accent/30 text-accent hover:border-accent hover:bg-accent/10"
-                      }`}
+                        }`}
                     >
                       {plan.cta}
                     </button>
@@ -211,9 +206,8 @@ export default function PlansSection() {
                     {plan.features.map((feature) => (
                       <div key={feature} className="flex items-start gap-3">
                         <div
-                          className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                            plan.elite || plan.popular ? "bg-accent/20" : "bg-muted"
-                          }`}
+                          className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${plan.elite || plan.popular ? "bg-accent/20" : "bg-muted"
+                            }`}
                         >
                           <Check
                             className={`w-3 h-3 ${plan.elite || plan.popular ? "text-accent" : "text-muted-foreground"}`}

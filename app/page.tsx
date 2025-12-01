@@ -10,6 +10,8 @@ import FAQ from "@/components/faq"
 import Footer from "@/components/footer"
 import PageLoader from "@/components/page-loader"
 import CertificatesCarousel from "@/components/certificates-carousel"
+// import MentorsSection from "@/components/mentors-section"
+
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -27,6 +29,7 @@ export default function Home() {
         <main className="min-h-screen bg-background">
           <Header />
           <Hero isLoaded={isLoaded} />
+          {/* <MentorsSection /> */}
           <Process />
           <CertificatesCarousel />
           <Plans />
