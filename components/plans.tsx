@@ -101,7 +101,7 @@ export default function PlansSection() {
   }, [])
 
   return (
-    <section id="plans" className="py-24 px-4 sm:px-6 lg:px-8 bg-background relative overflow-hidden">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-background relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
@@ -110,7 +110,7 @@ export default function PlansSection() {
 
       <div id="plans-section" className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-20 space-y-4">
+        <div className="text-center mb-20 space-y-4"  id="plans">
           <div className="inline-block">
             <span className="px-4 py-1.5 rounded-full text-sm font-semibold bg-accent/10 text-accent border border-accent/30">
               Simple, Transparent Pricing
@@ -125,7 +125,7 @@ export default function PlansSection() {
         </div>
 
         {/* Plans Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12" >
           {plans.map((plan, index) => {
             const Icon = plan.icon
             return (

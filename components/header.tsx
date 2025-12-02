@@ -46,9 +46,8 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-5 left-0 right-0 md:left-1/2 md:-translate-x-1/2 z-50 transition-all duration-300 md:w-4/5 md:rounded-b-2xl ${
-        isScrolled ? "bg-white/40 backdrop-blur-xl shadow-xl border border-white/20" : "bg-transparent"
-      }`}
+      className={`fixed top-5 left-0 right-0 md:left-1/2 md:-translate-x-1/2 z-50 transition-all duration-300 md:w-4/5 md:rounded-b-2xl ${isScrolled ? "bg-white/40 backdrop-blur-xl shadow-xl border border-white/20" : "bg-transparent"
+        }`}
     >
       {isScrolled && (
         <div className="absolute inset-0 md:rounded-b-2xl overflow-hidden pointer-events-none">
@@ -96,23 +95,28 @@ export default function Header() {
           </nav>
 
           {/* CTA Button */}
+          {/* CTA Button */}
           <div className="hidden md:block flex-shrink-0 z-10 relative">
-            <button
-              className="
-              px-6 py-2 
-              bg-gradient-to-r from-accent to-primary 
-              text-white rounded-lg font-medium 
-              transition-all duration-500 ease-out
-              hover:from-primary hover:to-accent 
-              hover:shadow-lg 
-              hover:scale-105
-              cursor-pointer 
-              active:scale-95
-              flex items-center gap-2
-            "
-            >
-              Join <ChevronRight className="w-4 h-4" />
-            </button>
+            <a href="#plans">
+              <button
+                className="
+                  px-6 py-2 
+                  bg-gradient-to-r from-accent to-primary 
+                  text-white rounded-lg font-medium 
+                  transition-all duration-500 ease-out
+                  hover:from-primary hover:to-accent 
+                  hover:shadow-lg 
+                  hover:scale-105
+                  cursor-pointer 
+                  active:scale-95
+                  flex items-center gap-2
+                "
+              >
+                Join
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </a>
+
           </div>
 
           {/* Mobile Menu Button */}

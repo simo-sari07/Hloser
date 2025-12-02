@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 import StatsMarque from "./stats-marque"
+import Image from "next/image"
 
 
 
@@ -228,27 +229,30 @@ export default function Hero({ isLoaded = true }) {
 
           {/* Main Heading with Letter Animation */}
           <motion.div variants={headingVariants}>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight break-words whitespace-normal tracking-tight">
-
-              {title.split("").map((char, index) => (
-                <motion.span
-                  key={index}
-                  custom={index}
-                  variants={letterVariants}
-                  initial="hidden"
-                  animate={isLoaded ? "visible" : "hidden"}
-                  className={
-                    char === "M" || char === "A"
-                      ? "bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent"
-                      : ""
-                  }
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
+              {title.split(" ").map((word, wordIndex) => (
+                <span key={wordIndex} className="inline-block whitespace-nowrap">
+                  {word.split("").map((char, charIndex) => (
+                    <motion.span
+                      key={`${wordIndex}-${charIndex}`}
+                      custom={wordIndex * 10 + charIndex}
+                      variants={letterVariants}
+                      initial="hidden"
+                      animate={isLoaded ? "visible" : "hidden"}
+                      className={
+                        char === "M" || char === "A"
+                          ? "bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent"
+                          : ""
+                      }
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                  {wordIndex < title.split(" ").length - 1 && "\u00A0"}
+                </span>
               ))}
             </h1>
           </motion.div>
-
           {/* Subheading with Slide Effect */}
           <motion.p
             variants={itemVariants}
@@ -347,9 +351,13 @@ export default function Hero({ isLoaded = true }) {
                   className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-accent/40 shadow-lg"
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <div className="w-full h-full bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center text-4xl font-bold text-[#000]">
-                    L
-                  </div>
+                  <Image
+                    src="https://res.cloudinary.com/da63nggkh/image/upload/v1764700855/IMG_5460_tsv2xz.jpg"
+                    alt="University of Trading MA"
+                    fill
+                    className="object-cover"
+                  />
+
                   {/* Animated Ring */}
                   <motion.div
                     className="absolute inset-0 border-4 border-accent/30 rounded-full"
@@ -365,6 +373,7 @@ export default function Hero({ isLoaded = true }) {
                   />
                 </motion.div>
               </motion.div>
+
 
               {/* Founder Info */}
               <motion.div
