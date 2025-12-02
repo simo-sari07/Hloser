@@ -8,20 +8,59 @@ import Link from "next/link"
 export default function PrivacyPolicy() {
   const sections = [
     {
-      title: "Refund Policy",
-      content: `All sales are final. Due to the nature of our digital services and the instant access to premium content, we do not offer refunds under any circumstances. By completing a purchase on our website, you acknowledge and agree that all payments are non-refundable.`,
+      title: "Information We Collect",
+      content: `When you join U.T.M, we may collect personal information such as your name, email address, username, and any other information you voluntarily provide.
+
+We may also automatically collect certain data related to your use of the platform, including account details, payment information, device information, and operating system.
+
+Additionally, we may collect information when you communicate with us through emails, messages, or any other forms of interaction.`,
     },
     {
-      title: "Recurring Payments",
-      content: `By subscribing to any of our plans, you agree to automatic monthly billing. Your subscription will renew each month unless you cancel it. You have the right to cancel your subscription at any time through your account dashboard.`,
+      title: "How We Use Your Information",
+      content: `We may use the information we collect for various purposes, including but not limited to:
+
+• Operating and maintaining U.T.M and its features.
+• Communicating with you regarding your account or membership.
+• Personalizing your user experience.
+• Improving the content, structure, and offerings available within U.T.M.
+• Analyzing trends, managing the platform, and gathering demographic insights.
+• Complying with legal requirements and protecting our rights.`,
     },
     {
-      title: "Cancellation Policy",
-      content: `If you wish to cancel your subscription, you must do so at least 3 days before the renewal date. Cancellations made after this period will still result in the next month's payment being processed. No refund after renewal: Once a renewal payment is charged, it cannot be refunded, regardless of whether you forgot to cancel on time or did not use the service.`,
+      title: "How We Share Your Information",
+      content: `We may share your personal information with third parties under specific circumstances, such as:
+
+• Service providers who assist in operating U.T.M and delivering our services.
+• With your consent or at your direction, for example when you choose to share information publicly within the community.
+• To comply with legal obligations or to enforce our policies.`,
     },
     {
-      title: "Terms Acknowledgment",
-      content: `By continuing your subscription, you fully accept and agree to these terms. If you have any questions about our refund or cancellation policies, please contact our support team through your account.`,
+      title: "Your Choices",
+      content: `You have certain options regarding the personal information we collect, including:
+
+• Choosing not to provide some types of information, understanding that this may limit access to certain features of U.T.M.
+• Requesting updates or corrections to your personal information by contacting us.
+• Opting out of promotional communications by following the instructions included in such messages.`,
+    },
+    {
+      title: "Data Security",
+      content: `We take the security of your personal information seriously and implement reasonable measures to protect it from unauthorized access, disclosure, alteration, or destruction.
+
+These measures may include encryption, firewalls, access controls, and periodic security assessments.
+
+However, please be aware that no method of data transmission over the internet or electronic storage is completely secure, and we cannot guarantee absolute protection. While we strive to safeguard your information, any transmission of data to us is done at your own risk.`,
+    },
+    {
+      title: "Children's Privacy",
+      content: `U.T.M is not intended for individuals under the age of 18, and we do not knowingly collect personal information from minors.
+
+If you are under 18, please do not provide any personal information on the platform.`,
+    },
+    {
+      title: "Changes to This Privacy Policy",
+      content: `We may update or modify this Privacy Policy from time to time, and any changes will be posted on this page.
+
+By continuing to use U.T.M after such changes are applied, you acknowledge and accept the updated Privacy Policy.`,
     },
   ]
 
@@ -64,9 +103,24 @@ export default function PrivacyPolicy() {
               ← Back to Home
             </Link>
             <h1 className="text-5xl md:text-6xl font-bold mb-4 text-balance">
-              Privacy & <span className="text-accent">Refund Policy</span>
+              Privacy <span className="text-accent">Policy</span>
             </h1>
-            <p className="text-lg text-muted-foreground">Transparency and fairness in all our dealings</p>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              This Privacy Policy explains how University of Trading MA ("U.T.M", "we", "us", or "our") collects, uses, and shares personal information from users ("you", "your") of our educational trading community.
+            </p>
+          </motion.div>
+
+          {/* Important Notice at Top */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-12 bg-accent/10 border-2 border-accent/30 rounded-2xl p-8"
+          >
+            <h3 className="text-xl font-bold text-accent mb-3">Agreement</h3>
+            <p className="text-muted-foreground">
+              By accessing or using U.T.M, you acknowledge and agree to the terms outlined in this Privacy Policy.
+            </p>
           </motion.div>
 
           {/* Content Sections */}
@@ -91,7 +145,7 @@ export default function PrivacyPolicy() {
                   {/* Content */}
                   <div className="flex-1">
                     <h2 className="text-2xl font-bold text-foreground mb-4">{section.title}</h2>
-                    <p className="text-muted-foreground leading-relaxed text-lg whitespace-pre-wrap">
+                    <p className="text-muted-foreground leading-relaxed text-base whitespace-pre-wrap">
                       {section.content}
                     </p>
                   </div>
@@ -100,19 +154,23 @@ export default function PrivacyPolicy() {
             ))}
           </motion.div>
 
-          {/* Important Notice */}
+          {/* Contact Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-16 bg-accent/10 border-2 border-accent/30 rounded-2xl p-8"
+            className="mt-16 bg-gradient-to-br from-accent/10 to-primary/10 border-2 border-accent/30 rounded-2xl p-8"
           >
-            <h3 className="text-xl font-bold text-accent mb-3">Important Notice</h3>
-            <p className="text-muted-foreground">
-              This policy was last updated on November 29, 2025. We reserve the right to modify these terms at any time.
-              Changes will be effective immediately upon posting to the website. Your continued use of our services
-              following the posting of changes constitutes your acceptance of such changes.
+            <h3 className="text-xl font-bold text-accent mb-3">Contact Us</h3>
+            <p className="text-muted-foreground mb-4">
+              If you have any questions or concerns about this Privacy Policy or our privacy practices, please contact us at:
             </p>
+            <a
+              href="mailto:support@universityoftradingma.com"
+              className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors font-semibold"
+            >
+              support@universityoftradingma.com
+            </a>
           </motion.div>
         </div>
       </main>
