@@ -73,7 +73,7 @@ export default function Header() {
             className="animate-fade-in flex items-center gap-2 flex-shrink-0 z-10 relative"
           >
             <Image
-              src="https://res.cloudinary.com/da63nggkh/image/upload/v1764125097/logo_fbezdg.jpg"
+              src="https://res.cloudinary.com/da63nggkh/image/upload/v1764700855/IMG_8819_klaoa4.png"
               alt="Moroccan Trading Community Logo"
               width={40}
               height={40}

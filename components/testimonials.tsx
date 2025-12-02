@@ -128,7 +128,7 @@ export default function Testimonials() {
               transition={{ duration: 0.3 }}
               className="w-[90%]"
             >
-              <div className="bg-background rounded-xl p-8 border border-border">
+              <div className="bg-background rounded-xl p-8 border border-border min-h-[280px] flex flex-col">
                 {/* Rating */}
                 <div className="flex gap-1 mb-4">
                   {Array.from({ length: testimonials[currentIndex].rating }).map((_, i) => (
@@ -136,11 +136,26 @@ export default function Testimonials() {
                   ))}
                 </div>
 
-                {/* Title */}
-                <h3 className="font-bold text-foreground mb-3 text-lg">{testimonials[currentIndex].title}</h3>
-
                 {/* Quote */}
-                <p className="text-foreground text-sm leading-relaxed">"{testimonials[currentIndex].content}"</p>
+                <p className="text-foreground text-sm leading-relaxed mb-4 flex-1">"{testimonials[currentIndex].content}"</p>
+
+                {/* Author with Verified Badge */}
+                <div className="flex items-center gap-3 mt-auto pt-4 border-t border-border">
+                  <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold shrink-0">
+                    {testimonials[currentIndex].title.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground text-sm">{testimonials[currentIndex].title}</p>
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-3.5 h-3.5 rounded-full bg-blue-500 flex items-center justify-center">
+                        <svg className="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <span className="text-xs text-gray-600">Verified Member</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
@@ -175,11 +190,26 @@ export default function Testimonials() {
                     ))}
                   </div>
 
-                  {/* Title */}
-                  <h3 className="font-bold text-foreground mb-3">{testimonial.title}</h3>
-
                   {/* Quote */}
-                  <p className="text-foreground text-sm leading-relaxed flex-1">"{testimonial.content}"</p>
+                  <p className="text-foreground text-sm leading-relaxed flex-1 mb-4">"{testimonial.content}"</p>
+
+                  {/* Author with Verified Badge */}
+                  <div className="flex items-center gap-3 mt-auto pt-4 border-t border-border">
+                    <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold shrink-0">
+                      {testimonial.title.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">{testimonial.title}</p>
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-3.5 h-3.5 rounded-full bg-blue-500 flex items-center justify-center">
+                          <svg className="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                        <span className="text-xs text-gray-600">Verified Member</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}
