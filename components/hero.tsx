@@ -279,8 +279,13 @@ export default function Hero({ isLoaded = true }) {
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">
-                R
+                <img
+                  src="https://res.cloudinary.com/da63nggkh/image/upload/v1764179321/r_vhcqp1.avif"
+                  alt="U.T.M"
+                  className="w-8 h-8 rounded-full object-contain"
+                />
               </div>
+
               <div className="text-left">
                 <p className="text-xs font-semibold text-black">368 Reviews</p>
                 <p className="text-sm font-bold text-[#7a9898] flex items-center gap-1">
