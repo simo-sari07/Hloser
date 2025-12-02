@@ -228,7 +228,8 @@ export default function Hero({ isLoaded = true }) {
 
           {/* Main Heading with Letter Animation */}
           <motion.div variants={headingVariants}>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight break-words whitespace-normal tracking-tight">
+
               {title.split("").map((char, index) => (
                 <motion.span
                   key={index}
