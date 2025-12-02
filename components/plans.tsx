@@ -62,11 +62,11 @@ const plans = [
     saving: "Save 18%",
   },
   {
-    name: "Yearly",
-    price: "300",
-    period: "/year",
-    badge: "Elite",
-    description: "Lifetime mastery",
+    name: "Free Community",
+    price: "Free",
+    period: "",
+    badge: "Community",
+    description: "Join for free",
     icon: Rocket,
     features: [
       "Practical learning strategies",
@@ -75,10 +75,9 @@ const plans = [
       "Risk management guide",
       "Member rewards program",
     ],
-    cta: "Go Elite",
-    link: "#",
+    cta: "Join Free Telegram",
+    link: "https://t.me/+x7DoEIeaBEw1NzVk",
     popular: false,
-    saving: "Save 17%",
   },
 ]
 
@@ -110,7 +109,7 @@ export default function PlansSection() {
 
       <div id="plans-section" className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-20 space-y-4"  id="plans">
+        <div className="text-center mb-20 space-y-4" id="plans">
           <div className="inline-block">
             <span className="px-4 py-1.5 rounded-full text-sm font-semibold bg-accent/10 text-accent border border-accent/30">
               Simple, Transparent Pricing
@@ -125,7 +124,7 @@ export default function PlansSection() {
         </div>
 
         {/* Plans Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12" >
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {plans.map((plan, index) => {
             const Icon = plan.icon
             return (
@@ -181,12 +180,18 @@ export default function PlansSection() {
                     </div>
                     <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
                     <div className="flex items-baseline gap-2">
-                      <span
-                        className={`text-4xl font-bold ${plan.elite || plan.popular ? "text-accent" : "text-foreground"}`}
-                      >
-                        £{plan.price}
-                      </span>
-                      <span className="text-muted-foreground text-sm">{plan.period}</span>
+                      {plan.name === "Free Community" ? (
+                        <span className="text-4xl font-bold text-blue-500">Free</span>
+                      ) : (
+                        <>
+                          <span
+                            className={`text-4xl font-bold ${plan.elite || plan.popular ? "text-accent" : "text-foreground"}`}
+                          >
+                            £{plan.price}
+                          </span>
+                          <span className="text-muted-foreground text-sm">{plan.period}</span>
+                        </>
+                      )}
                     </div>
                   </div>
 
@@ -243,19 +248,22 @@ export default function PlansSection() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: "📊", title: "Private Community", desc: "24/7 access to expert traders and professionals" },
-              { icon: "📈", title: "Daily Analysis", desc: "Real-time market insights and technical analysis" },
-              { icon: "🎥", title: "Livestream Sessions", desc: "Live trading and interactive Q&A with mentors" },
-              { icon: "📚", title: "Video Library", desc: "100+ hours of comprehensive training content" },
-              { icon: "🛡️", title: "Risk Management", desc: "Professional portfolio tools and strategies" },
-              { icon: "⚡", title: "Priority Support", desc: "Direct access to mentors and community leaders" },
-            ].map((item) => (
+              { title: "Private Community", desc: "24/7 access to expert traders and professionals" },
+              { title: "Daily Analysis", desc: "Real-time market insights and technical analysis" },
+              { title: "Livestream Sessions", desc: "Live trading and interactive Q&A with mentors" },
+              { title: "Video Library", desc: "100+ hours of comprehensive training content" },
+              { title: "Risk Management", desc: "Professional portfolio tools and strategies" },
+              { title: "Priority Support", desc: "Direct access to mentors and community leaders" },
+            ].map((item, index) => (
               <div
                 key={item.title}
                 className="group p-6 bg-gradient-to-br from-card to-card/50 border border-border rounded-xl hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10 transition-all duration-300"
               >
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
+                  {/* Professional numbered badge */}
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 font-semibold text-sm group-hover:bg-accent/20 transition-colors">
+                    {index + 1}
+                  </div>
                   <div className="flex-1">
                     <p className="text-foreground font-semibold text-sm mb-2">{item.title}</p>
                     <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>

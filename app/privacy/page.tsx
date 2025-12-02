@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Link from "next/link"
@@ -64,114 +63,45 @@ By continuing to use U.T.M after such changes are applied, you acknowledge and a
     },
   ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  }
-
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-background pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <main className="min-h-screen bg-white pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-16 text-center"
-          >
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors mb-6"
-            >
-              ← Back to Home
-            </Link>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-balance">
-              Privacy <span className="text-accent">Policy</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              This Privacy Policy explains how University of Trading MA ("U.T.M", "we", "us", or "our") collects, uses, and shares personal information from users ("you", "your") of our educational trading community.
-            </p>
-          </motion.div>
+          <Link href="/" className="text-gray-500 text-sm mb-8 inline-block">
+            ← Back to Home
+          </Link>
+          
+          <h1 className="text-2xl font-bold mb-4 text-gray-900">Privacy Policy</h1>
+          
+          <p className="text-xs text-gray-500 mb-8">
+            This Privacy Policy explains how University of Trading MA ("U.T.M", "we", "us", or "our") collects, uses, and shares personal information from users ("you", "your") of our educational trading community.
+          </p>
 
-          {/* Important Notice at Top */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mb-12 bg-accent/10 border-2 border-accent/30 rounded-2xl p-8"
-          >
-            <h3 className="text-xl font-bold text-accent mb-3">Agreement</h3>
-            <p className="text-muted-foreground">
+          <div className="mb-8 bg-gray-50 border border-gray-200 p-4">
+            <p className="text-xs text-gray-600">
               By accessing or using U.T.M, you acknowledge and agree to the terms outlined in this Privacy Policy.
             </p>
-          </motion.div>
+          </div>
 
-          {/* Content Sections */}
-          <motion.div className="space-y-8" variants={containerVariants} initial="hidden" animate="visible">
+          <div className="text-xs text-gray-500 leading-relaxed space-y-6">
             {sections.map((section, index) => (
-              <motion.div
-                key={section.title}
-                variants={itemVariants}
-                className="bg-card border border-border rounded-2xl p-8 hover:border-accent/50 transition-colors duration-300"
-              >
-                <div className="flex gap-4 items-start">
-                  {/* Number Badge */}
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center"
-                  >
-                    <span className="font-bold text-accent text-sm">{index + 1}</span>
-                  </motion.div>
-
-                  {/* Content */}
-                  <div className="flex-1">
-                    <h2 className="text-2xl font-bold text-foreground mb-4">{section.title}</h2>
-                    <p className="text-muted-foreground leading-relaxed text-base whitespace-pre-wrap">
-                      {section.content}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
+              <div key={section.title}>
+                <h2 className="font-semibold mb-2 text-gray-700">{index + 1}. {section.title}</h2>
+                <p className="whitespace-pre-wrap">{section.content}</p>
+              </div>
             ))}
-          </motion.div>
+          </div>
 
-          {/* Contact Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-16 bg-gradient-to-br from-accent/10 to-primary/10 border-2 border-accent/30 rounded-2xl p-8"
-          >
-            <h3 className="text-xl font-bold text-accent mb-3">Contact Us</h3>
-            <p className="text-muted-foreground mb-4">
-              If you have any questions or concerns about this Privacy Policy or our privacy practices, please contact us at:
+          <div className="mt-8 pt-6 border-t border-gray-200">
+            <h2 className="font-semibold mb-2 text-xs text-gray-700">Contact Us</h2>
+            <p className="text-xs text-gray-500">
+              If you have any questions or concerns about this Privacy Policy or our privacy practices, please contact us at:{" "}
+              <a href="mailto:support@universityoftradingma.com" className="text-gray-600 underline">
+                support@universityoftradingma.com
+              </a>
             </p>
-            <a
-              href="mailto:support@universityoftradingma.com"
-              className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors font-semibold"
-            >
-              support@universityoftradingma.com
-            </a>
-          </motion.div>
+          </div>
         </div>
       </main>
       <Footer />

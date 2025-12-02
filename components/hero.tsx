@@ -180,8 +180,7 @@ export default function Hero({ isLoaded = true }) {
             }}
           />
           <p className="text-sm font-semibold relative z-10">
-            🎉 <span className="text-accent">Hl0ser – 20% Reward</span>{" - "}
-            Earn 20% for every client you bring to Hl0ser.
+            🎉 <span className="text-black">Use Code  <span className="text-blue-600">"HLoser"</span> – Get 20% OFF Your First Month</span>{" - "}
           </p>
         </div>
       </motion.div>

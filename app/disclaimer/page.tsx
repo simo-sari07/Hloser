@@ -1,10 +1,8 @@
 "use client"
 
-import { motion } from "framer-motion"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Link from "next/link"
-import { AlertTriangle, ShieldAlert } from "lucide-react"
 
 export default function DisclaimerRefund() {
   const disclaimerItems = [
@@ -57,157 +55,54 @@ export default function DisclaimerRefund() {
     },
   ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  }
-
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-background pt-32 pb-20 px-4 sm:px-6 lg:px-8" id="disclaimer">
-        <div className="max-w-5xl mx-auto">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-16 text-center"
-          >
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors mb-6"
-            >
-              ← Back to Home
-            </Link>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-balance">
-              Disclaimer & <span className="text-accent">Refund Policy</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Important information about trading risks and our refund terms
-            </p>
-          </motion.div>
-
-          {/* Disclaimer Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-12"
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center">
-                <AlertTriangle className="w-6 h-6 text-red-500" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">Disclaimer</h2>
-            </div>
-
-            <div className="bg-gradient-to-br from-red-500/10 to-orange-500/10 border-2 border-red-500/30 rounded-2xl p-8 mb-8">
-              <p className="text-muted-foreground leading-relaxed">
+      <main className="min-h-screen bg-white pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <Link href="/" className="text-gray-500 text-sm mb-8 inline-block">
+            ← Back to Home
+          </Link>
+          
+          <h1 className="text-2xl font-bold mb-8 text-gray-900">Disclaimer & Refund Policy</h1>
+          
+          <div className="text-xs text-gray-500 leading-relaxed space-y-8">
+            <div>
+              <h2 className="font-semibold mb-3 text-gray-700">Disclaimer</h2>
+              <p className="mb-4">
                 University of Trading MA (U.T.M) is a community for traders to share knowledge, insights, and experiences related to financial markets. By participating in U.T.M, you acknowledge and agree to the following:
               </p>
-            </div>
-
-            <motion.div className="space-y-4" variants={containerVariants} initial="hidden" animate="visible">
-              {disclaimerItems.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  variants={itemVariants}
-                  className="bg-card border border-border rounded-xl p-6 hover:border-red-500/50 transition-colors duration-300"
-                >
-                  <div className="flex gap-4 items-start">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mt-1">
-                      <span className="font-bold text-red-500 text-xs">{index + 1}</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed text-sm">{item.content}</p>
-                    </div>
+              <div className="space-y-3">
+                {disclaimerItems.map((item) => (
+                  <div key={item.title}>
+                    <span className="font-medium">{item.title}:</span> {item.content}
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          {/* Refund Policy Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mb-12"
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
-                <ShieldAlert className="w-6 h-6 text-accent" />
+                ))}
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">Refund Policy</h2>
             </div>
 
-            <motion.div className="space-y-4" variants={containerVariants} initial="hidden" animate="visible">
-              {refundItems.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  variants={itemVariants}
-                  className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-colors duration-300"
-                >
-                  <div className="flex gap-4 items-start">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center mt-1">
-                      <span className="font-bold text-accent text-xs">{index + 1}</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed text-sm">{item.content}</p>
-                    </div>
+            <div>
+              <h2 className="font-semibold mb-3 text-gray-700">Refund Policy</h2>
+              <div className="space-y-3">
+                {refundItems.map((item) => (
+                  <div key={item.title}>
+                    <span className="font-medium">{item.title}:</span> {item.content}
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
+                ))}
+              </div>
+              <p className="mt-4">By continuing your subscription, you fully accept and agree to these terms.</p>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-6 bg-accent/10 border-2 border-accent/30 rounded-xl p-6"
-            >
-              <p className="text-muted-foreground font-semibold text-center">
-                By continuing your subscription, you fully accept and agree to these terms.
+            <div>
+              <h2 className="font-semibold mb-2 text-gray-700">Contact</h2>
+              <p>
+                For any questions or concerns regarding these policies, please contact:{" "}
+                <a href="mailto:support@universityoftradingma.com" className="text-gray-600 underline">
+                  support@universityoftradingma.com
+                </a>
               </p>
-            </motion.div>
-          </motion.div>
-
-          {/* Contact Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="bg-gradient-to-br from-accent/10 to-primary/10 border-2 border-accent/30 rounded-2xl p-8"
-          >
-            <h3 className="text-xl font-bold text-accent mb-3">Contact Us</h3>
-            <p className="text-muted-foreground mb-4">
-              For any questions or concerns regarding these policies, please contact:
-            </p>
-            <a
-              href="mailto:support@universityoftradingma.com"
-              className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors font-semibold"
-            >
-              support@universityoftradingma.com
-            </a>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </main>
       <Footer />

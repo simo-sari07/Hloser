@@ -87,31 +87,27 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div key={index} >
               <div
-                className={`border border-border rounded-xl overflow-hidden transition-all duration-300 ${
-                  openIndex === index
+                className={`border border-border rounded-xl overflow-hidden transition-all duration-300 ${openIndex === index
                     ? "border-accent/50 bg-card shadow-lg shadow-accent/10"
                     : "bg-card/30 hover:bg-card/50 hover:border-border/80"
-                }`}
+                  }`}
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className={`w-full px-6 py-5 flex items-center cursor-pointer justify-between hover:bg-opacity-50 transition-all duration-200 ${
-                    openIndex === index ? "bg-accent/5" : ""
-                  }`}
+                  className={`w-full px-6 py-5 flex items-center cursor-pointer justify-between hover:bg-opacity-50 transition-all duration-200 ${openIndex === index ? "bg-accent/5" : ""
+                    }`}
                 >
                   <span
-                    className={`font-semibold  text-left text-base transition-colors duration-200 ${
-                      openIndex === index ? "text-accent" : "text-foreground"
-                    }`}
+                    className={`font-semibold  text-left text-base transition-colors duration-200 ${openIndex === index ? "text-accent" : "text-foreground"
+                      }`}
                   >
                     {faq.question}
                   </span>
                   <motion.div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 font-semibold text-white ${
-                      openIndex === index
+                    className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 font-semibold text-white ${openIndex === index
                         ? "bg-accent shadow-lg shadow-accent/50"
                         : "bg-muted text-muted-foreground group-hover:bg-accent/30"
-                    }`}
+                      }`}
                     animate={{ rotate: openIndex === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -148,9 +144,16 @@ export default function FAQ() {
             Join our elite trading community. Learn from experts, access daily analysis, and grow your portfolio with
             confidence.
           </p>
-          <button className="px-8 py-3 bg-gradient-to-r from-accent to-primary cursor-pointer text-white rounded-lg font-semibold hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/30  active:scale-95">
-            Join the Community
-          </button>
+          <a
+            href="https://t.me/+x7DoEIeaBEw1NzVk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="px-8 py-3 bg-gradient-to-r from-accent to-primary cursor-pointer text-white rounded-lg font-semibold hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/30 active:scale-95">
+              Join the Community
+            </button>
+          </a>
+
         </motion.div>
       </div>
     </section>
