@@ -46,7 +46,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-5 left-0 right-0 md:left-1/2 md:-translate-x-1/2 z-50 transition-all duration-300 md:w-4/5 md:rounded-b-2xl ${isScrolled ? "bg-white/40 backdrop-blur-xl shadow-xl border border-white/20" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 md:left-1/2 md:-translate-x-1/2 z-50 transition-all duration-300 md:w-4/5 md:rounded-b-2xl ${isScrolled ? "bg-white/40 backdrop-blur-xl shadow-xl border border-white/20" : "bg-transparent"
         }`}
     >
       {isScrolled && (
