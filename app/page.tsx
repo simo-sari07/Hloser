@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <>
-      <PageLoader isComplete={isLoaded} />
+      {/* <PageLoader isComplete={isLoaded} /> */}
       {isLoaded && (
         <main className="min-h-screen bg-background">
           <Header />

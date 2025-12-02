@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Plus, Minus, HelpCircle } from "lucide-react"
+import { motion } from "framer-motion"
 
 const faqs = [
   {
@@ -36,7 +37,7 @@ const faqs = [
   },
 ]
 
-export default function FAQSection() {
+export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -58,7 +59,7 @@ export default function FAQSection() {
   return (
     <section
       id="faq"
-      className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background via-card/20 to-background relative overflow-hidden"
+      className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background via-card/20 to-background relative overflow-hidden z-10"
     >
       {/* Background accent */}
       <div className="absolute inset-0 opacity-20">
@@ -105,24 +106,29 @@ export default function FAQSection() {
                   >
                     {faq.question}
                   </span>
-                  <div
+                  <motion.div
                     className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 font-semibold text-white ${
                       openIndex === index
                         ? "bg-accent shadow-lg shadow-accent/50"
                         : "bg-muted text-muted-foreground group-hover:bg-accent/30"
                     }`}
-                    style={{
-                      transform: openIndex === index ? "rotate(180deg)" : "rotate(0deg)",
-                    }}
+                    animate={{ rotate: openIndex === index ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
                   >
                     {openIndex === index ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
-                  </div>
+                  </motion.div>
                 </button>
 
                 {openIndex === index && (
-                  <div className="px-6 py-5 bg-accent/5 border-t border-accent/20">
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="px-6 py-5 bg-accent/5 border-t border-accent/20"
+                  >
                     <p className="text-muted-foreground leading-relaxed text-base">{faq.answer}</p>
-                  </div>
+                  </motion.div>
                 )}
               </div>
             </div>
@@ -130,7 +136,13 @@ export default function FAQSection() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-16 p-10 bg-gradient-to-r from-accent/10 via-primary/5 to-accent/10 border-2 border-accent/30 rounded-2xl text-center group hover:border-accent/50 transition-all duration-300">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-16 p-10 bg-gradient-to-r from-accent/10 via-primary/5 to-accent/10 border-2 border-accent/30 rounded-2xl text-center group hover:border-accent/50 transition-all duration-300"
+        >
           <h3 className="text-3xl font-bold text-foreground mb-3">Ready to start your journey?</h3>
           <p className="text-muted-foreground mb-8 leading-relaxed max-w-lg mx-auto">
             Join our elite trading community. Learn from experts, access daily analysis, and grow your portfolio with
@@ -139,7 +151,7 @@ export default function FAQSection() {
           <button className="px-8 py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/30 hover:scale-105 active:scale-95">
             Join the Community
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

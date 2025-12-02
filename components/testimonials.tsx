@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Star, ChevronLeft, ChevronRight } from "lucide-react"
-import { useIsMobile } from "./hooks/use-mobile"
 
 const testimonials = [
   {
@@ -41,7 +40,14 @@ const testimonials = [
 export default function Testimonials() {
   const [isVisible, setIsVisible] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
-  const isMobile = useIsMobile()
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768)
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -120,7 +126,7 @@ export default function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
-              className="w-[90%] "
+              className="w-[90%]"
             >
               <div className="bg-background rounded-xl p-8 border border-border">
                 {/* Rating */}
@@ -141,7 +147,7 @@ export default function Testimonials() {
             {/* Right Arrow */}
             <button
               onClick={handleNext}
-              className="absolute right-0 z-10 p-2 bg-[#dad8d8]  hover:bg-gray-100 rounded-3xl transition-colors"
+              className="absolute right-0 z-10 p-2 bg-[#dad8d8] hover:bg-gray-100 rounded-3xl transition-colors"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-6 h-6 text-white hover:text-black" />
