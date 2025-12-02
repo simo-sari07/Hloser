@@ -85,7 +85,7 @@ export default function FAQ() {
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index}>
+            <div key={index} >
               <div
                 className={`border border-border rounded-xl overflow-hidden transition-all duration-300 ${
                   openIndex === index
@@ -95,12 +95,12 @@ export default function FAQ() {
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className={`w-full px-6 py-5 flex items-center justify-between hover:bg-opacity-50 transition-all duration-200 ${
+                  className={`w-full px-6 py-5 flex items-center cursor-pointer justify-between hover:bg-opacity-50 transition-all duration-200 ${
                     openIndex === index ? "bg-accent/5" : ""
                   }`}
                 >
                   <span
-                    className={`font-semibold text-left text-base transition-colors duration-200 ${
+                    className={`font-semibold  text-left text-base transition-colors duration-200 ${
                       openIndex === index ? "text-accent" : "text-foreground"
                     }`}
                   >
@@ -148,7 +148,7 @@ export default function FAQ() {
             Join our elite trading community. Learn from experts, access daily analysis, and grow your portfolio with
             confidence.
           </p>
-          <button className="px-8 py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/30 hover:scale-105 active:scale-95">
+          <button className="px-8 py-3 bg-gradient-to-r from-accent to-primary cursor-pointer text-white rounded-lg font-semibold hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/30  active:scale-95">
             Join the Community
           </button>
         </motion.div>

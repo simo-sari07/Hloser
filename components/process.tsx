@@ -6,30 +6,29 @@ import { motion } from "framer-motion"
 const steps = [
   {
     number: "1",
-    title: "Onboarding",
-    description:
-      "Immediately after checkout you will be redirected to a complete onboarding process to get you started in the right direction",
+    title: "Get Access",
+    description: "Right after joining, you’ll go through a smooth onboarding flow so you know exactly where to start and how to navigate the program.",
     step: "Step 1",
   },
   {
     number: "2",
-    title: "Learn",
+    title: "Receive Insights",
     description:
-      "Begin studying the models and watching all videos as soon as you join with all content available to members from the start",
+      "Access all lessons and start building a strong foundation. You’ll study the framework, watch step-by-step videos, and understand how the strategy works in real market environments.",
     step: "Step 2",
   },
   {
     number: "3",
-    title: "Guidance",
+    title: "Stay Connected",
     description:
-      "Experience learning in real time by receiving constant mentor insights through livestreams and new market lessons",
+      "Learn in real-time through daily trade ideas, livestreams, and constant mentor feedback. You’ll never trade alone — support is available 24/7.",
     step: "Step 3",
   },
   {
     number: "4",
-    title: "Growth",
+    title: " Grow Consistently",
     description:
-      "Continue to improve and see results with ongoing guidance, live sessions, and a community that grows with you",
+      "Apply what you’ve learned, track progress, and keep improving with weekly forecasts, ongoing updates, and a community evolving alongside you",
     step: "Step 4",
   },
 ]
