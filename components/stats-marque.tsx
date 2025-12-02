@@ -34,7 +34,7 @@ export default function StatsMarquee() {
       >
         {duplicatedStats.map((stat, index) => (
           <div key={index} className="flex-shrink-0 text-center">
-            <p className="text-2xl md:text-3xl font-bold text-black mb-1 md:mb-2">{stat.number}</p>
+            <p className="text-2xl md:text-3xl font-bold text-accent mb-1 md:mb-2">{stat.number}</p>
             <p className="text-xs md:text-base text-black whitespace-nowrap">{stat.label}</p>
           </div>
         ))}

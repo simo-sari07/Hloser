@@ -37,7 +37,7 @@ export default function Header() {
   }, [isOpen])
 
   const navLinks = [
-    { label: "Benefits", href: "#benefits" },
+    { label: "Home", href: "#home" },
     { label: "Process", href: "#process" },
     { label: "Pricing", href: "#plans" },
     { label: "Testimonials", href: "#testimonials" },

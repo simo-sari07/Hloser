@@ -2,9 +2,36 @@
 
 import { useState, useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
-import StatsMarque from "./stats-marque"
 
-
+// Mock StatsMarque component
+function StatsMarque() {
+  return (
+    <div className="overflow-hidden bg-white/50 backdrop-blur-sm rounded-2xl py-4">
+      <motion.div
+        className="flex gap-8 whitespace-nowrap"
+        animate={{ x: [0, -1000] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      >
+        {[...Array(2)].map((_, i) => (
+          <div key={i} className="flex gap-8">
+            <div className="px-6">
+              <span className="text-2xl font-bold text-accent">2000+</span>
+              <p className="text-sm text-gray-600">Active Members</p>
+            </div>
+            <div className="px-6">
+              <span className="text-2xl font-bold text-accent">95%</span>
+              <p className="text-sm text-gray-600">Success Rate</p>
+            </div>
+            <div className="px-6">
+              <span className="text-2xl font-bold text-accent">24/7</span>
+              <p className="text-sm text-gray-600">Support</p>
+            </div>
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  )
+}
 
 export default function Hero({ isLoaded = true }) {
   const [scrollY, setScrollY] = useState(0)
@@ -119,7 +146,7 @@ export default function Hero({ isLoaded = true }) {
   const title = "University of Trading MA"
 
   return (
-    <section id="home" className="relative min-h-screen pt-20 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#dce1e8]/30 to-white overflow-hidden">
+    <section className="relative min-h-screen pt-20 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#dce1e8]/30 to-white overflow-hidden">
       {/* Animated Background Elements */}
       <motion.div
         className="absolute top-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl"
@@ -179,8 +206,8 @@ export default function Hero({ isLoaded = true }) {
             }}
           />
           <p className="text-sm font-semibold relative z-10">
-            🎉 <span className="text-accent">Hl0ser – 20% Reward</span>{" - "}
-            Earn 20% for every client you bring to Hl0ser.
+            🎉 <span className="text-accent">Hl0ser – 20% Reward</span>{" "}
+            Earn money by bringing clients to Hl0ser. Every time a customer buys through your link, you receive a commission.
           </p>
         </div>
       </motion.div>
