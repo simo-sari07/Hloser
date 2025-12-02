@@ -60,7 +60,7 @@ export default function Footer() {
             <h4 className="font-bold text-base text-gray-900 mb-5 tracking-tight">Quick Links</h4>
             <ul className="space-y-3">
               {[
-                { name: "Faq", href: "#faq" },
+                { name: "FAQ", href: "#faq" },
                 { name: "Pricing", href: "#plans" },
                 { name: "Testimonials", href: "#testimonials" },
               ].map((link) => (
@@ -90,6 +90,7 @@ export default function Footer() {
             <h4 className="font-bold text-base text-gray-900 mb-5 tracking-tight">Legal</h4>
             <ul className="space-y-3">
               {[
+                { name: "Terms of service", href: "/terms" },
                 { name: "Privacy Policy", href: "/privacy" },
                 { name: "Disclaimer", href: "/disclaimer" },
               ].map((link) => (

@@ -2,7 +2,6 @@
 
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-import Link from "next/link"
 
 export default function PrivacyPolicy() {
   const sections = [
@@ -68,36 +67,34 @@ By continuing to use U.T.M after such changes are applied, you acknowledge and a
       <Header />
       <main className="min-h-screen bg-white pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <Link href="/" className="text-gray-500 text-sm mb-8 inline-block">
-            ← Back to Home
-          </Link>
+        
           
-          <h1 className="text-2xl font-bold mb-4 text-gray-900">Privacy Policy</h1>
+          <h1 className="text-4xl font-bold mb-6 text-gray-900">Privacy Policy</h1>
           
-          <p className="text-xs text-gray-500 mb-8">
+          <p className="text-base text-gray-600 mb-8">
             This Privacy Policy explains how University of Trading MA ("U.T.M", "we", "us", or "our") collects, uses, and shares personal information from users ("you", "your") of our educational trading community.
           </p>
 
-          <div className="mb-8 bg-gray-50 border border-gray-200 p-4">
-            <p className="text-xs text-gray-600">
+          <div className="mb-8 bg-gray-50 border border-gray-200 p-6 rounded-lg">
+            <p className="text-base text-gray-700">
               By accessing or using U.T.M, you acknowledge and agree to the terms outlined in this Privacy Policy.
             </p>
           </div>
 
-          <div className="text-xs text-gray-500 leading-relaxed space-y-6">
+          <div className="text-base text-gray-700 leading-relaxed space-y-8">
             {sections.map((section, index) => (
               <div key={section.title}>
-                <h2 className="font-semibold mb-2 text-gray-700">{index + 1}. {section.title}</h2>
+                <h2 className="font-semibold text-lg mb-3 text-gray-900">{index + 1}. {section.title}</h2>
                 <p className="whitespace-pre-wrap">{section.content}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 pt-6 border-t border-gray-200">
-            <h2 className="font-semibold mb-2 text-xs text-gray-700">Contact Us</h2>
-            <p className="text-xs text-gray-500">
+          <div className="mt-10 pt-6 border-t border-gray-200">
+            <h2 className="font-semibold text-lg mb-3 text-gray-900">Contact Us</h2>
+            <p className="text-base text-gray-700">
               If you have any questions or concerns about this Privacy Policy or our privacy practices, please contact us at:{" "}
-              <a href="mailto:support@universityoftradingma.com" className="text-gray-600 underline">
+              <a href="mailto:support@universityoftradingma.com" className="text-blue-600 underline hover:text-blue-800">
                 support@universityoftradingma.com
               </a>
             </p>

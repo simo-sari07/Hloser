@@ -37,11 +37,11 @@ export default function Header() {
   }, [isOpen])
 
   const navLinks = [
-    { label: "Home", href: "#home" },
-    { label: "Process", href: "#process" },
-    { label: "Pricing", href: "#plans" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "Questions", href: "#faq" },
+    { label: "Home", href: "/#home" },
+    { label: "Process", href: "/#process" },
+    { label: "Pricing", href: "/#plans" },
+    { label: "Testimonials", href: "/#testimonials" },
+    { label: "Questions", href: "/#faq" },
   ]
 
   return (

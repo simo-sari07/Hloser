@@ -2,7 +2,6 @@
 
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-import Link from "next/link"
 
 export default function DisclaimerRefund() {
   const disclaimerItems = [
@@ -60,44 +59,42 @@ export default function DisclaimerRefund() {
       <Header />
       <main className="min-h-screen bg-white pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <Link href="/" className="text-gray-500 text-sm mb-8 inline-block">
-            ← Back to Home
-          </Link>
+      
           
-          <h1 className="text-2xl font-bold mb-8 text-gray-900">Disclaimer & Refund Policy</h1>
+          <h1 className="text-4xl font-bold mb-8 text-gray-900">Disclaimer & Refund Policy</h1>
           
-          <div className="text-xs text-gray-500 leading-relaxed space-y-8">
+          <div className="text-base text-gray-700 leading-relaxed space-y-10">
             <div>
-              <h2 className="font-semibold mb-3 text-gray-700">Disclaimer</h2>
-              <p className="mb-4">
+              <h2 className="font-semibold text-2xl mb-4 text-gray-900">Disclaimer</h2>
+              <p className="mb-6">
                 University of Trading MA (U.T.M) is a community for traders to share knowledge, insights, and experiences related to financial markets. By participating in U.T.M, you acknowledge and agree to the following:
               </p>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {disclaimerItems.map((item) => (
                   <div key={item.title}>
-                    <span className="font-medium">{item.title}:</span> {item.content}
+                    <span className="font-semibold text-gray-900">{item.title}:</span> {item.content}
                   </div>
                 ))}
               </div>
             </div>
 
             <div>
-              <h2 className="font-semibold mb-3 text-gray-700">Refund Policy</h2>
-              <div className="space-y-3">
+              <h2 className="font-semibold text-2xl mb-4 text-gray-900">Refund Policy</h2>
+              <div className="space-y-4">
                 {refundItems.map((item) => (
                   <div key={item.title}>
-                    <span className="font-medium">{item.title}:</span> {item.content}
+                    <span className="font-semibold text-gray-900">{item.title}:</span> {item.content}
                   </div>
                 ))}
               </div>
-              <p className="mt-4">By continuing your subscription, you fully accept and agree to these terms.</p>
+              <p className="mt-6 font-medium">By continuing your subscription, you fully accept and agree to these terms.</p>
             </div>
 
-            <div>
-              <h2 className="font-semibold mb-2 text-gray-700">Contact</h2>
+            <div className="pt-6 border-t border-gray-200">
+              <h2 className="font-semibold text-xl mb-3 text-gray-900">Contact</h2>
               <p>
                 For any questions or concerns regarding these policies, please contact:{" "}
-                <a href="mailto:support@universityoftradingma.com" className="text-gray-600 underline">
+                <a href="mailto:support@universityoftradingma.com" className="text-blue-600 underline hover:text-blue-800">
                   support@universityoftradingma.com
                 </a>
               </p>
