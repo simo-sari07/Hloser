@@ -83,41 +83,39 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div key={index}>
               <div
-                className={`border rounded-xl overflow-hidden transition-all duration-300 ${
+                className={`border rounded-xl overflow-hidden transition-all duration-500 ease-in-out ${
                   openIndex === index
-                    ? "border-accent bg-accent/5 shadow-lg shadow-accent/25"
-                    : "border-border bg-card/50 hover:bg-card/70 hover:border-accent/50"
+                    ? "border-accent/60 bg-accent/5"
+                    : "border-border/60 bg-white hover:border-border hover:bg-gray-50/50"
                 }`}
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className={`w-full px-6 py-5 flex items-center cursor-pointer justify-between transition-all duration-300 ${
-                    openIndex === index ? "bg-accent/8" : ""
-                  }`}
+                  className={`w-full px-6 py-5 flex items-center cursor-pointer justify-between transition-all duration-500 ease-in-out`}
                 >
                   <span
-                    className={`font-semibold text-left text-base transition-colors duration-300 ${
-                      openIndex === index ? "text-accent" : "text-foreground"
+                    className={`font-semibold text-left text-base transition-colors duration-500 ${
+                      openIndex === index ? "text-foreground" : "text-foreground"
                     }`}
                   >
                     {faq.question}
                   </span>
                   <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 font-semibold ${
+                    className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-500 ease-in-out font-semibold text-white ${
                       openIndex === index
-                        ? "bg-accent text-white shadow-lg shadow-accent/50 rotate-180 scale-110"
-                        : "bg-muted text-muted-foreground hover:bg-muted/80"
+                        ? "bg-accent shadow-md shadow-accent/40"
+                        : "bg-accent hover:shadow-md hover:shadow-accent/30"
                     }`}
                   >
                     {openIndex === index ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                   </div>
                 </button>
                 <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
                     openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="px-6 py-5 bg-accent/8 border-t border-accent/20">
+                  <div className="px-6 py-5 border-t border-accent/30 bg-accent/3">
                     <p className="text-muted-foreground leading-relaxed text-base">{faq.answer}</p>
                   </div>
                 </div>
