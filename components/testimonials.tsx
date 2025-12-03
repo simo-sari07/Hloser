@@ -141,7 +141,7 @@ export default function Testimonials() {
 
                 {/* Author with Verified Badge */}
                 <div className="flex items-center gap-3 mt-auto pt-4 border-t border-border">
-                  <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-[#7a9898] flex items-center justify-center text-white font-bold shrink-0">
                     {testimonials[currentIndex].title.charAt(0)}
                   </div>
                   <div>
@@ -195,7 +195,7 @@ export default function Testimonials() {
 
                   {/* Author with Verified Badge */}
                   <div className="flex items-center gap-3 mt-auto pt-4 border-t border-border">
-                    <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-[#7a9898] flex items-center justify-center text-white font-bold shrink-0">
                       {testimonial.title.charAt(0)}
                     </div>
                     <div>
