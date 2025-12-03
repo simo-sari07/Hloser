@@ -139,12 +139,14 @@ export default function Header() {
                   {link.label}
                 </a>
               ))}
+              <a href="#plans">
               <button
                 onClick={handleNavClick}
                 className="px-4 py-2 bg-gradient-to-r from-accent to-primary text-white rounded-lg font-medium mt-2 w-full hover:bg-blue-600 transition-all duration-200 flex items-center justify-center gap-2"
               >
                 Join <ChevronRight className="w-4 h-4" />
               </button>
+              </a>
             </nav>
           </div>
         )}
