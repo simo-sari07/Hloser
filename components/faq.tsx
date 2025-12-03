@@ -2,38 +2,37 @@
 
 import { useState, useEffect } from "react"
 import { Plus, Minus, HelpCircle } from "lucide-react"
-import { motion } from "framer-motion"
 
 const faqs = [
   {
     question: "What is the Private Room?",
     answer:
-      "The Private Room provides daily market analysis, trading opportunities, and simple insights to help you make better trading decisions, whether you're a beginner or experienced trader.",
+      "The Private Room gives you daily market breakdowns, trade ideas, and a clear weekly outlook — helping you make confident and informed decisions whether you're a beginner or already experienced.",
   },
   {
-    question: "Can I try the service before paying?",
+    question: "Do I need experience before joining?",
     answer:
-      "Yes! You get a free trial period where you can test the premium content with no payment required. Join our free community group first.",
+      "No. You can join regardless of your trading background — the content is structured to support both beginners and advanced traders.",
   },
   {
-    question: "How can I get the most out of the service?",
+    question: "Can I try it before paying?",
     answer:
-      "Once you subscribe, you'll gain access to daily content, market breakdowns, live sessions, and you can contact support anytime if you have questions.",
+      "At the moment, trials aren't available. However, the value and quality of the content make every subscription worth it.",
   },
   {
-    question: "Is the content beginner-friendly?",
+    question: "How do I access the content?",
     answer:
-      "Absolutely. All explanations are simple, clear, and free of complex trading terminology so beginners can learn quickly and build confidence.",
+      "Once you join, you'll receive a private access link to all daily content, videos, and market insights — plus the ability to contact us directly if you ever need support.",
   },
   {
-    question: "Can I cancel my subscription anytime?",
+    question: "Is the content suitable for beginners?",
     answer:
-      "Yes. You can cancel your subscription at any moment without problems and with complete freedom. No hidden fees or long-term contracts.",
+      "Absolutely. Everything is explained clearly and in a simple way, so even if you're new to trading, you'll understand the concepts and learn fast.",
   },
   {
-    question: "What kind of support do you provide?",
+    question: "Can I cancel anytime?",
     answer:
-      "We provide 24/7 community support, direct mentor access, email support, and live Q&A sessions. Our team is dedicated to your success.",
+      "Yes — you have full flexibility. You can cancel your membership at any time, with no restrictions or complications.",
   },
 ]
 
@@ -85,75 +84,65 @@ export default function FAQ() {
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} >
+            <div key={index}>
               <div
-                className={`border border-border rounded-xl overflow-hidden transition-all duration-300 ${openIndex === index
+                className={`border border-border rounded-xl overflow-hidden transition-all duration-75 ${
+                  openIndex === index
                     ? "border-accent/50 bg-card shadow-lg shadow-accent/10"
                     : "bg-card/30 hover:bg-card/50 hover:border-border/80"
-                  }`}
+                }`}
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className={`w-full px-6 py-5 flex items-center cursor-pointer justify-between hover:bg-opacity-50 transition-all duration-200 ${openIndex === index ? "bg-accent/5" : ""
-                    }`}
+                  className={`w-full px-6 py-5 flex items-center cursor-pointer justify-between hover:bg-opacity-50 transition-all duration-75 ${
+                    openIndex === index ? "bg-accent/5" : ""
+                  }`}
                 >
                   <span
-                    className={`font-semibold  text-left text-base transition-colors duration-200 ${openIndex === index ? "text-accent" : "text-foreground"
-                      }`}
+                    className={`font-semibold text-left text-base transition-colors duration-75 ${
+                      openIndex === index ? "text-accent" : "text-foreground"
+                    }`}
                   >
                     {faq.question}
                   </span>
-                  <motion.div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 font-semibold text-white ${openIndex === index
-                        ? "bg-accent shadow-lg shadow-accent/50"
-                        : "bg-muted text-muted-foreground group-hover:bg-accent/30"
-                      }`}
-                    animate={{ rotate: openIndex === index ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
+                  <div
+                    className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-75 font-semibold text-white ${
+                      openIndex === index
+                        ? "bg-accent shadow-lg shadow-accent/50 rotate-180"
+                        : "bg-muted text-muted-foreground"
+                    }`}
                   >
                     {openIndex === index ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
-                  </motion.div>
+                  </div>
                 </button>
 
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="px-6 py-5 bg-accent/5 border-t border-accent/20"
-                  >
+                <div
+                  className={`overflow-hidden transition-all duration-75 ${
+                    openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <div className="px-6 py-5 bg-accent/5 border-t border-accent/20">
                     <p className="text-muted-foreground leading-relaxed text-base">{faq.answer}</p>
-                  </motion.div>
-                )}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
         {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mt-16 p-10 bg-gradient-to-r from-accent/10 via-primary/5 to-accent/10 border-2 border-accent/30 rounded-2xl text-center group hover:border-accent/50 transition-all duration-300"
-        >
+        <div className="mt-16 p-10 bg-gradient-to-r from-accent/10 via-primary/5 to-accent/10 border-2 border-accent/30 rounded-2xl text-center group hover:border-accent/50 transition-all duration-300">
           <h3 className="text-3xl font-bold text-foreground mb-3">Ready to start your journey?</h3>
           <p className="text-muted-foreground mb-8 leading-relaxed max-w-lg mx-auto">
             Join our elite trading community. Learn from experts, access daily analysis, and grow your portfolio with
             confidence.
           </p>
-          <a
-            href="#plans"
-            rel="noopener noreferrer"
-          >
+          <a href="#plans" rel="noopener noreferrer">
             <button className="px-8 py-3 bg-gradient-to-r from-accent to-primary cursor-pointer text-white rounded-lg font-semibold hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/30 active:scale-95">
               Join the Community
             </button>
           </a>
-
-        </motion.div>
+        </div>
       </div>
     </section>
   )
