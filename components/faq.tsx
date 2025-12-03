@@ -145,8 +145,7 @@ export default function FAQ() {
             confidence.
           </p>
           <a
-            href="https://t.me/+x7DoEIeaBEw1NzVk"
-            target="_blank"
+            href="#plans"
             rel="noopener noreferrer"
           >
             <button className="px-8 py-3 bg-gradient-to-r from-accent to-primary cursor-pointer text-white rounded-lg font-semibold hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/30 active:scale-95">
