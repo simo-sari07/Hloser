@@ -49,7 +49,6 @@ export default function FAQ() {
       },
       { threshold: 0.1 },
     )
-
     const element = document.getElementById("faq-section")
     if (element) observer.observe(element)
     return () => observer.disconnect()
@@ -64,7 +63,6 @@ export default function FAQ() {
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-1/2 w-96 h-96 bg-primary rounded-full blur-3xl -translate-x-1/2"></div>
       </div>
-
       <div id="faq-section" className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
@@ -81,47 +79,45 @@ export default function FAQ() {
             Get clarity on everything you need to know about our trading community
           </p>
         </div>
-
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq, index) => (
             <div key={index}>
               <div
-                className={`border border-border rounded-xl overflow-hidden transition-all duration-75 ${
+                className={`border rounded-xl overflow-hidden transition-all duration-300 ${
                   openIndex === index
-                    ? "border-accent/50 bg-card shadow-lg shadow-accent/10"
-                    : "bg-card/30 hover:bg-card/50 hover:border-border/80"
+                    ? "border-accent bg-accent/5 shadow-lg shadow-accent/25"
+                    : "border-border bg-card/50 hover:bg-card/70 hover:border-accent/50"
                 }`}
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className={`w-full px-6 py-5 flex items-center cursor-pointer justify-between hover:bg-opacity-50 transition-all duration-75 ${
-                    openIndex === index ? "bg-accent/5" : ""
+                  className={`w-full px-6 py-5 flex items-center cursor-pointer justify-between transition-all duration-300 ${
+                    openIndex === index ? "bg-accent/8" : ""
                   }`}
                 >
                   <span
-                    className={`font-semibold text-left text-base transition-colors duration-75 ${
+                    className={`font-semibold text-left text-base transition-colors duration-300 ${
                       openIndex === index ? "text-accent" : "text-foreground"
                     }`}
                   >
                     {faq.question}
                   </span>
                   <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-75 font-semibold text-white ${
+                    className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 font-semibold ${
                       openIndex === index
-                        ? "bg-accent shadow-lg shadow-accent/50 rotate-180"
-                        : "bg-muted text-muted-foreground"
+                        ? "bg-accent text-white shadow-lg shadow-accent/50 rotate-180 scale-110"
+                        : "bg-muted text-muted-foreground hover:bg-muted/80"
                     }`}
                   >
                     {openIndex === index ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                   </div>
                 </button>
-
                 <div
-                  className={`overflow-hidden transition-all duration-75 ${
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
                     openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="px-6 py-5 bg-accent/5 border-t border-accent/20">
+                  <div className="px-6 py-5 bg-accent/8 border-t border-accent/20">
                     <p className="text-muted-foreground leading-relaxed text-base">{faq.answer}</p>
                   </div>
                 </div>
@@ -129,7 +125,6 @@ export default function FAQ() {
             </div>
           ))}
         </div>
-
         {/* CTA Section */}
         <div className="mt-16 p-10 bg-gradient-to-r from-accent/10 via-primary/5 to-accent/10 border-2 border-accent/30 rounded-2xl text-center group hover:border-accent/50 transition-all duration-300">
           <h3 className="text-3xl font-bold text-foreground mb-3">Ready to start your journey?</h3>
