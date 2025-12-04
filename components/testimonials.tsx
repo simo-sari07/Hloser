@@ -209,9 +209,9 @@ export default function Testimonials() {
                         initial={{ opacity: 0, scale: 0 }}
                         animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
                         transition={{
-                          delay: 1.2 + i * 0.1,
+                          delay: 0.2 + i * 0.05,  // 👈 smaller delay
                           type: "spring",
-                          stiffness: 500,
+                          stiffness: 300,        // 👈 less stiff = faster
                         }}
                         className="text-[#7a9898] text-lg"
                       >
@@ -219,6 +219,7 @@ export default function Testimonials() {
                       </motion.span>
                     ))}
                   </div>
+
 
                   {/* Quote */}
                   <p className="text-foreground text-sm leading-relaxed flex-1 mb-4">"{testimonial.content}"</p>
