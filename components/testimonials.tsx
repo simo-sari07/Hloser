@@ -133,13 +133,13 @@ export default function Testimonials() {
                 <div className="flex gap-1 mb-4">
                   {"★★★★★".split("").map((star, i) => (
                     <motion.span
-                      key={i}
+                      key={`${currentIndex}-${i}`}
                       initial={{ opacity: 0, scale: 0 }}
-                      animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
                       transition={{
-                        delay: 1.2 + i * 0.1,
+                        delay: i * 0.05,
                         type: "spring",
-                        stiffness: 500,
+                        stiffness: 700,
                       }}
                       className="text-[#7a9898] text-lg"
                     >
@@ -207,11 +207,11 @@ export default function Testimonials() {
                       <motion.span
                         key={i}
                         initial={{ opacity: 0, scale: 0 }}
-                        animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
                         transition={{
-                          delay: 0.2 + i * 0.05,  // 👈 smaller delay
+                          delay: i * 0.04,
                           type: "spring",
-                          stiffness: 300,        // 👈 less stiff = faster
+                          stiffness: 700,
                         }}
                         className="text-[#7a9898] text-lg"
                       >
@@ -219,7 +219,6 @@ export default function Testimonials() {
                       </motion.span>
                     ))}
                   </div>
-
 
                   {/* Quote */}
                   <p className="text-foreground text-sm leading-relaxed flex-1 mb-4">"{testimonial.content}"</p>
