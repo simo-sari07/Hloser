@@ -97,7 +97,7 @@ export default function Header() {
           {/* CTA Button */}
           {/* CTA Button */}
           <div className="hidden md:block flex-shrink-0 z-10 relative">
-            <a href="#plans">
+            <a href="/#plans">
               <button
                 className="
                   px-6 py-2 
@@ -139,7 +139,7 @@ export default function Header() {
                   {link.label}
                 </a>
               ))}
-              <a href="#plans">
+              <a href="/#plans">
               <button
                 onClick={handleNavClick}
                 className="px-4 py-2 bg-gradient-to-r from-accent to-primary text-white rounded-lg font-medium mt-2 w-full hover:bg-blue-600 transition-all duration-200 flex items-center justify-center gap-2"

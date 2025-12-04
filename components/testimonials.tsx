@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { Star, ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const testimonials = [
   {
@@ -131,13 +131,27 @@ export default function Testimonials() {
               <div className="bg-background rounded-xl p-8 border border-border min-h-[280px] flex flex-col">
                 {/* Rating */}
                 <div className="flex gap-1 mb-4">
-                  {Array.from({ length: testimonials[currentIndex].rating }).map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                  {"★★★★★".split("").map((star, i) => (
+                    <motion.span
+                      key={i}
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                      transition={{
+                        delay: 1.2 + i * 0.1,
+                        type: "spring",
+                        stiffness: 500,
+                      }}
+                      className="text-[#7a9898] text-lg"
+                    >
+                      {star}
+                    </motion.span>
                   ))}
                 </div>
 
                 {/* Quote */}
-                <p className="text-foreground text-sm leading-relaxed mb-4 flex-1">"{testimonials[currentIndex].content}"</p>
+                <p className="text-foreground text-sm leading-relaxed mb-4 flex-1">
+                  "{testimonials[currentIndex].content}"
+                </p>
 
                 {/* Author with Verified Badge */}
                 <div className="flex items-center gap-3 mt-auto pt-4 border-t border-border">
@@ -149,7 +163,11 @@ export default function Testimonials() {
                     <div className="flex items-center gap-1.5">
                       <div className="w-3.5 h-3.5 rounded-full bg-blue-500 flex items-center justify-center">
                         <svg className="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
                         </svg>
                       </div>
                       <span className="text-xs text-gray-600">Verified Member</span>
@@ -185,8 +203,20 @@ export default function Testimonials() {
                 <div className="bg-background rounded-xl p-8 border border-border hover:border-accent transition-all h-full flex flex-col group">
                   {/* Rating */}
                   <div className="flex gap-1 mb-4">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+                    {"★★★★★".split("").map((star, i) => (
+                      <motion.span
+                        key={i}
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                        transition={{
+                          delay: 1.2 + i * 0.1,
+                          type: "spring",
+                          stiffness: 500,
+                        }}
+                        className="text-[#7a9898] text-lg"
+                      >
+                        {star}
+                      </motion.span>
                     ))}
                   </div>
 
@@ -203,7 +233,11 @@ export default function Testimonials() {
                       <div className="flex items-center gap-1.5">
                         <div className="w-3.5 h-3.5 rounded-full bg-blue-500 flex items-center justify-center">
                           <svg className="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
                           </svg>
                         </div>
                         <span className="text-xs text-gray-600">Verified Member</span>

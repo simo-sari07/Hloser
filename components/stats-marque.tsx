@@ -6,7 +6,7 @@ const statsData = [
   { number: "70", label: "course lessons" },
   { number: "24/7", label: "guidance" },
   { number: "1", label: "mentors" },
-  { number: "3", label: "instructors" },
+  { number: "1", label: "instructors" },
   { number: "300+", label: "hours of video" },
   { number: "8", label: "weekly livestreams" },
 ]
