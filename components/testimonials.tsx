@@ -94,7 +94,7 @@ const testimonials = [
     title: "Karim",
     content: "خدمة مميزة جدًا، التحليلات اليومية تمنحني وضوحًا كبيرًا قبل دخول السوق",
     rating: 5,
-  },
+  }
 ]
 
 export default function Testimonials() {
